@@ -1,0 +1,2256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="taptime_logo_transparent.png">
+<link rel="apple-touch-icon" href="taptime_logo_transparent.png">
+<link rel="shortcut icon" type="image/png" href="taptime_logo_transparent.png">
+<title>TapTime - Banking Vertical / Partner Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lime: #efffba;
+    --lime-dark: #d4e89e;
+    --navy: #0d1d32;
+    --ink: #081d34;
+    --white: #ffffff;
+    --card-bg: #f7f8f9;
+    --light-gray: #f9fafb;
+    --border-gray: #f3f4f6;
+    --mid-gray: #9ca3af;
+    --dark-gray: #374151;
+    --slate: #334155;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ----- TOPBAR ----- */
+  .topbar {
+    border-bottom: 2px solid var(--ink);
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .topbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .wordmark {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.4px;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: nowrap;
+  }
+  .nav-menu a {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1px;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background 120ms ease, color 120ms ease;
+    white-space: nowrap;
+  }
+  .nav-menu a:hover { background: var(--lime); }
+  .nav-menu a.cta {
+    background: var(--lime);
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    margin-left: 8px;
+  }
+  .nav-menu a.cta:hover { transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--ink); }
+  .wordmark-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  footer .wordmark-icon { width: 28px; height: 28px; }
+  .doc-meta {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--slate);
+    display: none;
+  }
+
+  /* ----- LAYOUT ----- */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  section { padding: 80px 0; border-bottom: 1px solid var(--border-gray); scroll-margin-top: 80px; }
+  section:last-of-type { border-bottom: none; }
+  .hero { scroll-margin-top: 80px; }
+
+  .eyebrow {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.7;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 64px;
+    letter-spacing: -0.5px;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  h2 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 44px;
+    letter-spacing: -0.4px;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 20px;
+    max-width: 920px;
+  }
+  h3 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  h4 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.2px;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  p { font-size: 17px; line-height: 1.6; color: var(--ink); margin-bottom: 16px; }
+  p.lead { font-size: 22px; line-height: 1.5; color: var(--slate); max-width: 820px; }
+
+  .lime-bar {
+    display: inline-block;
+    background: var(--lime);
+    padding: 2px 8px;
+    color: var(--ink);
+    font-weight: 800;
+  }
+
+  /* ----- HERO ----- */
+  .hero {
+    padding: 40px 0 64px;
+    background: linear-gradient(180deg, var(--card-bg) 0%, var(--white) 100%);
+  }
+  .hero-content { max-width: 920px; }
+
+  /* ----- THREE-UP ----- */
+  .three-up {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .neo-card {
+    background: var(--white);
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    border-radius: 14px;
+    padding: 28px;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+  }
+  .neo-card:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .neo-card .corner-lime {
+    display: inline-block;
+    background: var(--lime);
+    border: 2px solid var(--ink);
+    border-radius: 6px;
+    width: 36px; height: 36px;
+    line-height: 32px;
+    text-align: center;
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .neo-card p { font-size: 15px; color: var(--slate); margin-bottom: 0; }
+
+  /* ----- TIER GRID ----- */
+  .tier-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    box-shadow: 4px 4px 0 var(--ink);
+    overflow: hidden;
+    margin-top: 32px;
+  }
+  .tier-col { padding: 32px; border-right: 2px solid var(--ink); }
+  .tier-col:last-child { border-right: none; }
+  .tier-col.tier-1 { background: var(--lime); }
+  .tier-col.tier-2 { background: var(--white); }
+  .tier-col.tier-3 { background: var(--card-bg); }
+  .tier-eyebrow {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .tier-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .tier-stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+  }
+  .tier-stat-row:last-of-type { border-bottom: none; }
+  .tier-stat-row .label { color: var(--slate); font-weight: 500; }
+  .tier-stat-row .value { color: var(--ink); font-weight: 600; font-family: 'Sora', sans-serif; }
+  .tier-cohort-list { margin-top: 16px; font-size: 14px; color: var(--ink); line-height: 1.55; }
+
+  /* ----- TABS (CSS-only) ----- */
+  .tabs {
+    margin-top: 32px;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    box-shadow: 4px 4px 0 var(--ink);
+    background: var(--white);
+    overflow: hidden;
+  }
+  .tab-radios { display: none; }
+  .tab-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 2px solid var(--ink);
+    background: var(--card-bg);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tab-bar label {
+    padding: 20px 24px;
+    cursor: pointer;
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--slate);
+    text-align: left;
+    border-right: 2px solid var(--ink);
+    transition: background 120ms ease;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+  .tab-bar label:last-of-type { border-right: none; }
+  .tab-bar label:hover { background: var(--white); }
+  .tab-bar label .tab-tier {
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--slate);
+    opacity: 0.7;
+  }
+  .tab-bar label .tab-name {
+    font-size: 16px;
+    color: var(--ink);
+    letter-spacing: -0.2px;
+  }
+  #tab1:checked ~ .tab-bar label[for="tab1"],
+  #tab2:checked ~ .tab-bar label[for="tab2"],
+  #tab3:checked ~ .tab-bar label[for="tab3"] {
+    background: var(--lime);
+    color: var(--ink);
+  }
+  #tab1:checked ~ .tab-bar label[for="tab1"] .tab-tier,
+  #tab2:checked ~ .tab-bar label[for="tab2"] .tab-tier,
+  #tab3:checked ~ .tab-bar label[for="tab3"] .tab-tier { color: var(--ink); opacity: 1; }
+
+  .tab-panel { display: none; padding: 40px; }
+  #tab1:checked ~ .panels #panel1 { display: block; }
+  #tab2:checked ~ .panels #panel2 { display: block; }
+  #tab3:checked ~ .panels #panel3 { display: block; }
+  .syllabus-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -4px;
+  }
+  .syllabus { min-width: 560px; }
+
+  .panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 24px;
+  }
+  .panel-head h3 { margin-bottom: 4px; }
+  .panel-head .panel-meta { font-size: 14px; color: var(--slate); }
+  .panel-head .price-pill {
+    background: var(--lime);
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  .syllabus {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .syllabus th {
+    text-align: left;
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--slate);
+    padding: 12px 14px;
+    border-bottom: 2px solid var(--ink);
+    background: var(--card-bg);
+  }
+  .syllabus td {
+    padding: 16px 14px;
+    border-bottom: 1px solid var(--border-gray);
+    font-size: 14px;
+    color: var(--ink);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .syllabus tr:last-child td { border-bottom: none; }
+  .syllabus td.week { font-family: 'Sora', sans-serif; font-weight: 800; width: 64px; color: var(--ink); }
+  .syllabus td.module { font-family: 'Sora', sans-serif; font-weight: 700; }
+  .syllabus td.faculty { color: var(--slate); }
+  .syllabus td.format {
+    font-size: 12px;
+    color: var(--slate);
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+  }
+  .panel-outcomes {
+    margin-top: 24px;
+    background: var(--card-bg);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 20px 24px;
+  }
+  .panel-outcomes h4 { margin-bottom: 12px; }
+  .panel-outcomes ul { padding-left: 18px; }
+  .panel-outcomes li { font-size: 14px; line-height: 1.55; color: var(--ink); margin-bottom: 6px; }
+
+  /* ----- FACULTY CARDS ----- */
+  .faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .faculty-card {
+    background: var(--white);
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    border-radius: 14px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .faculty-card:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .faculty-card .corner-block {
+    position: absolute;
+    top: 16px; left: 16px;
+    background: var(--lime);
+    border: 2px solid var(--ink);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .faculty-card .photo {
+    background: var(--card-bg);
+    height: 200px;
+    border-bottom: 2px solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .avatar {
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    background: var(--lime);
+    border: 2px solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  .avatar.alt { background: var(--white); }
+  .avatar.dark { background: var(--ink); color: var(--lime); }
+  .faculty-card .body { padding: 20px 22px 22px; flex: 1; display: flex; flex-direction: column; }
+  .faculty-card .name {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 19px;
+    letter-spacing: -0.3px;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .faculty-card .title-line {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--slate);
+    margin-bottom: 14px;
+    line-height: 1.45;
+  }
+  .faculty-card .verify-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .verified-badge {
+    background: var(--lime);
+    border: 2px solid var(--ink);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .star {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .faculty-card .bio {
+    font-size: 13px;
+    color: var(--slate);
+    line-height: 1.55;
+    margin-bottom: 16px;
+    flex: 1;
+  }
+  .faculty-card .topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .topic-pill {
+    background: var(--card-bg);
+    border: 1.5px solid var(--ink);
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.2px;
+  }
+  .faculty-card .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid var(--ink);
+    padding-top: 14px;
+    margin-top: 4px;
+  }
+  .faculty-card .price {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .faculty-card .price small {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    color: var(--slate);
+  }
+  .faculty-card .book-btn {
+    background: var(--ink);
+    color: var(--lime);
+    border: 2px solid var(--ink);
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .archetype-note {
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--slate);
+    font-style: normal;
+    background: var(--card-bg);
+    border-left: 4px solid var(--lime);
+    padding: 12px 16px;
+    border-radius: 4px;
+  }
+
+  /* ----- WEDGE ----- */
+  .wedge {
+    background: var(--ink);
+    color: var(--white);
+    border-radius: 14px;
+    padding: 56px;
+    margin-top: 32px;
+    border: 2px solid var(--ink);
+    box-shadow: 6px 6px 0 var(--lime);
+  }
+  .wedge h2 { color: var(--white); }
+  .wedge .eyebrow { color: var(--lime); opacity: 1; }
+  .wedge p { color: var(--white); opacity: 0.92; }
+  .wedge .lime-strong { color: var(--lime); font-weight: 700; }
+
+  .wedge-three {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+  }
+  .wedge-three .pick {
+    border: 2px solid var(--lime);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .wedge-three .pick .pick-eye {
+    color: var(--lime);
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .wedge-three .pick .pick-name {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .wedge-three .pick .pick-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.55;
+  }
+
+  /* ----- ACCREDITATION VS PARTNERSHIP ----- */
+  .path-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 40px;
+  }
+  .path-card {
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    box-shadow: 4px 4px 0 var(--ink);
+    padding: 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .path-card.partnership { background: var(--lime); }
+  .path-card.accreditation { background: var(--white); }
+  .path-card .path-tag {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--lime);
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+  }
+  .path-card.accreditation .path-tag { background: var(--ink); color: var(--lime); }
+  .path-card h3 { font-size: 28px; }
+  .path-card .timeline {
+    background: var(--white);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .path-card.partnership .timeline { background: var(--white); }
+  .timeline-item { display: flex; flex-direction: column; gap: 2px; }
+  .timeline-item .ti-label {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .timeline-item .ti-value {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--ink);
+    letter-spacing: -0.2px;
+  }
+  .path-list { list-style: none; padding: 0; margin-top: 20px; }
+  .path-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--ink);
+    font-size: 15px;
+    line-height: 1.55;
+    display: flex;
+    gap: 12px;
+    align-items: start;
+  }
+  .path-list li:last-child { border-bottom: none; }
+  .path-list .icon {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border: 2px solid var(--ink);
+    border-radius: 4px;
+    background: var(--lime);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--ink);
+    margin-top: 1px;
+  }
+  .path-card.partnership .path-list .icon { background: var(--white); }
+  .path-recommend {
+    background: var(--ink);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-top: 24px;
+    display: flex;
+    gap: 16px;
+    align-items: start;
+  }
+  .path-recommend .star-flag {
+    background: var(--lime);
+    border: 2px solid var(--lime);
+    border-radius: 6px;
+    width: 32px; height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--ink);
+    flex-shrink: 0;
+  }
+  .path-recommend p {
+    color: var(--white);
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .path-recommend strong { color: var(--lime); }
+
+  /* ----- SPRINT ----- */
+  .sprint-table {
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 4px 4px 0 var(--ink);
+    margin-top: 32px;
+    background: var(--white);
+  }
+  .sprint-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 1.4fr;
+    gap: 24px;
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--border-gray);
+    align-items: start;
+  }
+  .sprint-row:last-of-type { border-bottom: none; }
+  .sprint-row.head {
+    background: var(--ink);
+    color: var(--white);
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .sprint-row.head > div { color: var(--white); }
+  .sprint-week {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .sprint-action { font-size: 15px; color: var(--ink); line-height: 1.5; }
+  .sprint-check {
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.5;
+    background: var(--card-bg);
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border-gray);
+  }
+
+  /* ----- PARTNER INVITATION CTA ----- */
+  .invite {
+    background: var(--card-bg);
+    border-top: 2px solid var(--ink);
+    padding: 100px 0;
+  }
+  .invite-card {
+    background: var(--white);
+    border: 2px solid var(--ink);
+    box-shadow: 6px 6px 0 var(--lime);
+    border-radius: 14px;
+    padding: 56px;
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .invite-card .eyebrow { margin-bottom: 12px; }
+  .invite-card h2 { margin-bottom: 16px; }
+  .invite-card p.lead { margin-bottom: 32px; }
+  .invite-three {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .invite-three .ic {
+    background: var(--card-bg);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .invite-three .ic-eye {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.7;
+    margin-bottom: 8px;
+  }
+  .invite-three .ic h4 { margin-bottom: 4px; }
+  .invite-three .ic p { font-size: 13px; color: var(--slate); margin-bottom: 0; }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+  }
+  .btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .btn-primary { background: var(--lime); color: var(--ink); }
+  .btn-secondary { background: var(--white); color: var(--ink); }
+
+  /* ----- FOOTER ----- */
+  footer {
+    padding: 32px;
+    text-align: center;
+    border-top: 2px solid var(--ink);
+    background: var(--white);
+  }
+  footer .wordmark { justify-content: center; }
+  footer p {
+    font-size: 12px;
+    color: var(--mid-gray);
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+
+  /* ----- RESPONSIVE ----- */
+
+  /* Tablet and below */
+  @media (max-width: 960px) {
+    h1 { font-size: 48px; }
+    h2 { font-size: 36px; }
+    p.lead { font-size: 19px; }
+    .hero { padding: 48px 0 56px; }
+    .nav-menu a { font-size: 12px; padding: 6px 8px; }
+    .nav-menu a[href="#wedge"], .nav-menu a[href="#paths"] { display: none; }
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .three-up, .faculty-grid, .wedge-three, .path-grid, .invite-three {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .tier-grid { grid-template-columns: 1fr; }
+    .tier-col { border-right: none; border-bottom: 2px solid var(--ink); }
+    .tier-col:last-child { border-bottom: none; }
+    section { padding: 64px 0; }
+    .invite-card, .wedge { padding: 40px; }
+    .wedge { box-shadow: 4px 4px 0 var(--lime); }
+    .invite-card { box-shadow: 4px 4px 0 var(--lime); }
+  }
+
+  /* Phone */
+  @media (max-width: 640px) {
+    h1 { font-size: 36px; line-height: 1.1; }
+    h2 { font-size: 28px; line-height: 1.15; }
+    h3 { font-size: 20px; }
+    p { font-size: 15px; }
+    p.lead { font-size: 17px; }
+    .topbar-inner { padding: 14px 20px; }
+    .wordmark { font-size: 18px; gap: 8px; }
+    .wordmark-icon { width: 26px; height: 26px; }
+    .doc-meta { display: none; }
+    .nav-menu a:not(.cta) { display: none; }
+    .nav-menu a.cta { margin-left: 0; padding: 8px 14px; font-size: 12px; }
+    .container { padding: 0 20px; }
+    section { padding: 48px 0; }
+    .eyebrow { margin-bottom: 12px; font-size: 11px; }
+    .hero { padding: 56px 0 48px; }
+    .hero-stat-card { padding: 22px; }
+    .hero-stat-card .big-number { font-size: 36px; }
+    .three-up, .faculty-grid, .wedge-three, .path-grid, .invite-three {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .neo-card { padding: 22px; }
+    .neo-card .corner-lime { width: 32px; height: 32px; line-height: 28px; font-size: 14px; }
+    .tier-col { padding: 24px; }
+    .tier-title { font-size: 22px; }
+    .tier-stat-row { padding: 8px 0; font-size: 13px; }
+    .sprint-row { grid-template-columns: 1fr; gap: 8px; padding: 18px 20px; }
+    .sprint-row.head { display: none; }
+    .sprint-week {
+      display: inline-block;
+      background: var(--lime);
+      border: 2px solid var(--ink);
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 12px;
+    }
+    .sprint-check { font-size: 13px; padding: 8px 12px; }
+
+    /* Tabs - allow horizontal scroll on phone */
+    .tab-bar {
+      display: flex;
+      grid-template-columns: none;
+    }
+    .tab-bar label {
+      flex: 0 0 auto;
+      min-width: 200px;
+      padding: 16px 18px;
+      border-right: 2px solid var(--ink);
+      border-bottom: none;
+    }
+    .tab-bar label:last-of-type { border-right: none; }
+    .tab-bar label .tab-name { font-size: 14px; }
+
+    .tab-panel { padding: 24px 20px; }
+    .panel-head { flex-direction: column; align-items: flex-start; gap: 12px; padding-bottom: 18px; margin-bottom: 18px; }
+    .panel-head h3 { font-size: 20px; }
+    .panel-head .price-pill { font-size: 13px; padding: 6px 12px; }
+    .syllabus th { padding: 10px 12px; font-size: 10px; }
+    .syllabus td { padding: 12px; font-size: 13px; }
+    .panel-outcomes { padding: 16px 18px; margin-top: 18px; }
+    .panel-outcomes li { font-size: 13px; }
+
+    /* Faculty cards on phone */
+    .faculty-card .photo { height: 160px; }
+    .avatar { width: 80px; height: 80px; font-size: 30px; }
+    .faculty-card .body { padding: 18px 20px 20px; }
+    .faculty-card .name { font-size: 17px; }
+    .faculty-card .corner-block { font-size: 9px; padding: 3px 8px; top: 12px; left: 12px; }
+
+    .archetype-note { font-size: 12px; padding: 12px 14px; }
+
+    /* Wedge */
+    .wedge { padding: 28px 22px; box-shadow: 3px 3px 0 var(--lime); }
+    .wedge h2 { font-size: 24px; }
+    .wedge-three { gap: 14px; margin-top: 24px; }
+    .wedge-three .pick { padding: 18px; }
+    .wedge-three .pick .pick-name { font-size: 22px; }
+
+    /* Paths */
+    .path-card { padding: 24px 22px; }
+    .path-card h3 { font-size: 22px; }
+    .timeline { padding: 14px 16px; gap: 14px; flex-direction: row; flex-wrap: wrap; }
+    .timeline-item .ti-value { font-size: 16px; }
+    .timeline-item .ti-label { font-size: 9px; }
+    .path-list li { padding: 10px 0; font-size: 14px; }
+    .path-recommend { padding: 16px 18px; gap: 12px; }
+    .path-recommend p { font-size: 13px; }
+
+    /* Invite */
+    .invite { padding: 64px 0; }
+    .invite-card { padding: 28px 22px; box-shadow: 3px 3px 0 var(--lime); }
+    .invite-card p.lead { margin-bottom: 24px; }
+    .invite-three { margin-bottom: 24px; }
+    .invite-three .ic { padding: 16px 18px; }
+    .cta-buttons { flex-direction: column; gap: 12px; }
+    .btn { width: 100%; text-align: center; padding: 14px 18px; font-size: 14px; }
+
+    footer { padding: 24px 20px; }
+  }
+
+  /* Small phone */
+  @media (max-width: 380px) {
+    h1 { font-size: 30px; }
+    h2 { font-size: 24px; }
+    .container { padding: 0 16px; }
+    .hero-stat-card .big-number { font-size: 30px; }
+    .timeline { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .neo-card { padding: 18px; }
+    .tier-col { padding: 20px; }
+    .tab-bar label { min-width: 170px; padding: 14px 16px; }
+  }
+
+  /* ===== CATALOG SECTION (appended) ===== */
+  .tier-jump {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .tier-jump a {
+    background: var(--white);
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    border-radius: 8px;
+    padding: 10px 18px;
+    text-decoration: none;
+    color: var(--ink);
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tier-jump a:hover { transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--ink); background: var(--lime); }
+  .tier-jump a .count {
+    background: var(--ink);
+    color: var(--lime);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 11px;
+  }
+  .tier-banner {
+    background: var(--ink);
+    color: var(--white);
+    border-radius: 14px;
+    padding: 28px 36px;
+    margin-bottom: 24px;
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--lime);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .tier-banner .tb-left { flex: 1; min-width: 280px; }
+  .tier-banner .tb-eye {
+    color: var(--lime);
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tier-banner h2 { color: var(--white); font-size: 28px; margin-bottom: 4px; max-width: none; }
+  .tier-banner p { color: rgba(255,255,255,0.85); font-size: 15px; margin-bottom: 0; }
+  .tier-banner .tb-stats { display: flex; gap: 24px; }
+  .tb-stat .label {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 2px;
+  }
+  .tb-stat .value {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--white);
+  }
+  .cohort-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 24px;
+  }
+  .cohort-card {
+    background: var(--white);
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    border-radius: 12px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+    position: relative;
+  }
+  .cohort-card:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+  .cohort-card.tier-1-card { background: linear-gradient(180deg, var(--lime) 0%, var(--white) 30%); }
+  .cohort-card.tier-3-card { background: var(--card-bg); }
+  .cohort-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .cohort-code {
+    background: var(--ink);
+    color: var(--lime);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+  }
+  .cohort-price {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--ink);
+    background: var(--lime);
+    border: 2px solid var(--ink);
+    border-radius: 6px;
+    padding: 4px 10px;
+  }
+  .cohort-name {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .cohort-row {
+    display: flex;
+    gap: 8px;
+    align-items: start;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-gray);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .cohort-row:last-of-type { border-bottom: none; }
+  .cohort-row .row-label {
+    flex-shrink: 0;
+    width: 64px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--slate);
+    padding-top: 2px;
+  }
+  .cohort-row .row-value { color: var(--ink); flex: 1; }
+  .cohort-card .audience-pill {
+    display: inline-block;
+    background: var(--card-bg);
+    border: 1.5px solid var(--ink);
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .add-btn {
+    margin-top: 16px;
+    background: var(--ink);
+    color: var(--lime);
+    border: 2px solid var(--ink);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    align-self: stretch;
+  }
+  .add-btn:hover { background: var(--lime); color: var(--ink); }
+
+  @media (max-width: 960px) {
+    .cohort-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .cohort-grid { grid-template-columns: 1fr; gap: 16px; }
+    .cohort-card { padding: 20px; }
+    .cohort-name { font-size: 17px; }
+    .tier-banner { padding: 22px 24px; }
+    .tier-banner h2 { font-size: 22px; }
+    .tier-banner .tb-stats { gap: 16px; }
+    .tb-stat .value { font-size: 16px; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="wordmark" href="#top"><img src="taptime_logo_transparent.png" alt="TapTime" class="wordmark-icon">TapTime</a>
+    <nav class="nav-menu">
+      <a href="#opportunity">Opportunity</a>
+      <a href="#product">Product</a>
+      <a href="#syllabi">Syllabi</a>
+      <a href="#faculty">Faculty</a>
+      <a href="#wedge">Wedge</a>
+      <a href="#paths">Paths</a>
+      <a href="#catalog" class="cta">Catalog</a>
+    </nav>
+  </div>
+</div>
+<a id="top"></a>
+
+<!-- HERO -->
+<div class="hero" id="opportunity">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">The Opportunity</div>
+      <h1>The Middle East banking sector is ready for a new training partner. We're it.</h1>
+      <p class="lead">Banks across the region spend heavily on training each year, and they want real operators in the room - not academics, not consultants. TapTime brings the GCC's top banking builders to teach the next generation of leaders, and turns every cohort into a self-compounding expert network.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WHY NOW -->
+<section id="why">
+  <div class="container">
+    <div class="eyebrow">Why now</div>
+    <h2>Three structural shifts open this window. The first to move owns the segment.</h2>
+
+    <div class="three-up">
+      <div class="neo-card">
+        <div class="corner-lime">1</div>
+        <h4>Banks are spending. Incumbents are stretched.</h4>
+        <p>UAE Tier 1 banks invest meaningfully in L&amp;D every year. EIBFS handles scale-banker training well, but it's not built for C-suite peer learning. The gap between what banks pay for and what they actually want is wide and growing.</p>
+      </div>
+      <div class="neo-card">
+        <div class="corner-lime">2</div>
+        <h4>The operator network is reachable.</h4>
+        <p>Ex-CEOs of Wio, Liv., Mashreq Neo. Founders of Tabby, Tamara, Lean, Tarabut. Ex-CDOs and CROs from FAB, ENBD, Mashreq. The exact people banks want to learn from are reachable through founder-led warm intros, not ad budgets.</p>
+      </div>
+      <div class="neo-card">
+        <div class="corner-lime">3</div>
+        <h4>The flywheel compounds.</h4>
+        <p>Every cohort onboards a handful of marquee experts to TapTime as paid marketplace listings. Each new cohort adds banking experts who compound network effects. No pure training company can replicate this. We are the only operator-network plus cohort hybrid.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PRODUCT (Three Tiers) -->
+<section id="product" style="background: var(--card-bg);">
+  <div class="container">
+    <div class="eyebrow">The product</div>
+    <h2>Three cohort tiers. One reusable spine. Faculty rotates on every run.</h2>
+    <p class="lead">Same curriculum runs four to six times a year with different operator lineups. Buyers see this as a feature - they get multi-bank pattern recognition, not one professor's POV. From CEO to RM, we have a cohort for every layer of the bank.</p>
+
+    <div class="tier-grid">
+      <div class="tier-col tier-1">
+        <div class="tier-eyebrow">Tier 1</div>
+        <div class="tier-title">C-Suite</div>
+        <div class="tier-stat-row"><span class="label">Audience</span><span class="value">CEO, MDs, Group Heads</span></div>
+        <div class="tier-stat-row"><span class="label">Cohort size</span><span class="value">12-20</span></div>
+        <div class="tier-stat-row"><span class="label">Length</span><span class="value">6-8 weeks</span></div>
+        <div class="tier-stat-row"><span class="label">Format</span><span class="value">Hybrid + retreat</span></div>
+        <div class="tier-stat-row"><span class="label">Price/seat</span><span class="value">$8.5K-$15K</span></div>
+        <div class="tier-cohort-list">
+          AI-Native Bank. M&amp;A and consolidation. Sustainable finance. Open finance. Islamic banking future. Cyber war games. Talent transformation. Investor relations. Customer-obsessed banking. Crisis leadership.
+        </div>
+      </div>
+      <div class="tier-col tier-2">
+        <div class="tier-eyebrow">Tier 2</div>
+        <div class="tier-title">Vertical Heads</div>
+        <div class="tier-stat-row"><span class="label">Audience</span><span class="value">Heads of Retail, SME, Risk, CDO</span></div>
+        <div class="tier-stat-row"><span class="label">Cohort size</span><span class="value">25-40</span></div>
+        <div class="tier-stat-row"><span class="label">Length</span><span class="value">8 weeks</span></div>
+        <div class="tier-stat-row"><span class="label">Format</span><span class="value">Live virtual + capstone</span></div>
+        <div class="tier-stat-row"><span class="label">Price/seat</span><span class="value">$3.5K-$6K</span></div>
+        <div class="tier-cohort-list">
+          Retail. Cards and Payments. SME. Corporate. Wealth. Treasury. Credit Risk. Financial Crime. CDO Playbook. Data and AI. Lean Ops. HR. Brand and CX. Embedded Finance. Internal Audit.
+        </div>
+      </div>
+      <div class="tier-col tier-3">
+        <div class="tier-eyebrow">Tier 3</div>
+        <div class="tier-title">Executors</div>
+        <div class="tier-stat-row"><span class="label">Audience</span><span class="value">RMs, AVPs, Specialists</span></div>
+        <div class="tier-stat-row"><span class="label">Cohort size</span><span class="value">50-150</span></div>
+        <div class="tier-stat-row"><span class="label">Length</span><span class="value">4-6 weeks</span></div>
+        <div class="tier-stat-row"><span class="label">Format</span><span class="value">Async + live</span></div>
+        <div class="tier-stat-row"><span class="label">Price/seat</span><span class="value">$750-$1.8K</span></div>
+        <div class="tier-cohort-list">
+          RM Masterclass (3 tracks). Branch Manager. Credit Underwriting. AML/KYC. Banking PM. Cybersecurity. Customer Service. Consultative Selling. Data Analyst. Ops Excellence.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COHORT SYLLABI (TABS) -->
+<section id="syllabi">
+  <div class="container">
+    <div class="eyebrow">Inside a cohort</div>
+    <h2>Sample syllabi. Real structure. What sellers can show buyers in week one.</h2>
+    <p class="lead">Every cohort runs on the same spine: pre-work, weekly modules, peer pods, capstone, retreat, alumni access. Each module slot has 2-3 pre-vetted operators ready to anchor it. Three illustrative cohorts below.</p>
+
+    <div class="tabs">
+      <input class="tab-radios" type="radio" name="cohort-tab" id="tab1" checked>
+      <input class="tab-radios" type="radio" name="cohort-tab" id="tab2">
+      <input class="tab-radios" type="radio" name="cohort-tab" id="tab3">
+
+      <div class="tab-bar">
+        <label for="tab1">
+          <span class="tab-tier">Tier 1 / C-Suite</span>
+          <span class="tab-name">The AI-Native Bank</span>
+        </label>
+        <label for="tab2">
+          <span class="tab-tier">Tier 2 / Vertical</span>
+          <span class="tab-name">The CDO Playbook</span>
+        </label>
+        <label for="tab3">
+          <span class="tab-tier">Tier 3 / Executor</span>
+          <span class="tab-name">RM Masterclass (Corporate)</span>
+        </label>
+      </div>
+
+      <div class="panels">
+        <!-- PANEL 1 -->
+        <div class="tab-panel" id="panel1">
+          <div class="panel-head">
+            <div>
+              <h3>The AI-Native Bank: A CEO Playbook</h3>
+              <div class="panel-meta">8 weeks / Hybrid (7 virtual + 1-day Dubai retreat) / 18 seats / 5 rotating faculty</div>
+            </div>
+            <div class="price-pill">$12,000 / seat</div>
+          </div>
+          <div class="syllabus-scroll"><table class="syllabus">
+            <thead>
+              <tr>
+                <th>Wk</th><th>Module</th><th>Faculty profile</th><th>Format</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="week">0</td><td class="module">Pre-work + peer intros</td><td class="faculty">Cohort director</td><td class="format">Async</td></tr>
+              <tr><td class="week">1</td><td class="module">Setting the AI ambition for your bank</td><td class="faculty">Ex-CEO of a regional bank that ran transformation</td><td class="format">Live group</td></tr>
+              <tr><td class="week">2</td><td class="module">Operating model and capital allocation</td><td class="faculty">Ex-CDO of FAB / ENBD / Mashreq</td><td class="format">Live group + 1:1</td></tr>
+              <tr><td class="week">3</td><td class="module">Talent strategy for an AI-native workforce</td><td class="faculty">Ex-CHRO of a Tier 1 ME bank</td><td class="format">Live group</td></tr>
+              <tr><td class="week">4</td><td class="module">Vendor and partner stack: build, buy, license</td><td class="faculty">Banking AI vendor lead (Microsoft FS / AWS FS MENA)</td><td class="format">Panel + Q&amp;A</td></tr>
+              <tr><td class="week">5</td><td class="module">Risk, regulation, and the board narrative</td><td class="faculty">Ex-CRO + ex-central bank advisor</td><td class="format">Live group</td></tr>
+              <tr><td class="week">6</td><td class="module">Customer experience at AI scale</td><td class="faculty">Founder of Wio / Liv. / Mashreq Neo</td><td class="format">Live group + 1:1</td></tr>
+              <tr><td class="week">7</td><td class="module">Capstone: Your bank's 18-month AI roadmap</td><td class="faculty">Cohort faculty panel</td><td class="format">Hybrid retreat</td></tr>
+              <tr><td class="week">8</td><td class="module">Wrap, alumni induction, board readout prep</td><td class="faculty">Cohort director + 2 anchor faculty</td><td class="format">Live group</td></tr>
+            </tbody>
+          </table></div>
+          <div class="panel-outcomes">
+            <h4>What participants leave with</h4>
+            <ul>
+              <li>An 18-month AI transformation roadmap pressure-tested by 5 operators</li>
+              <li>A peer cohort of 17 banking C-level leaders across the region</li>
+              <li>A board-ready narrative for AI strategy and capital allocation</li>
+              <li>Lifetime alumni access to TapTime's operator faculty network</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PANEL 2 -->
+        <div class="tab-panel" id="panel2">
+          <div class="panel-head">
+            <div>
+              <h3>The CDO Playbook: Leading Bank Tech Transformation</h3>
+              <div class="panel-meta">8 weeks / Live virtual + 1 in-person workshop / 30 seats / 4 rotating faculty</div>
+            </div>
+            <div class="price-pill">$5,500 / seat</div>
+          </div>
+          <div class="syllabus-scroll"><table class="syllabus">
+            <thead>
+              <tr>
+                <th>Wk</th><th>Module</th><th>Faculty profile</th><th>Format</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="week">0</td><td class="module">Pre-work: tech audit framework + benchmarks</td><td class="faculty">Cohort director</td><td class="format">Async</td></tr>
+              <tr><td class="week">1</td><td class="module">The modern CDO operating model</td><td class="faculty">Ex-CDO of Tier 1 ME bank</td><td class="format">Live group</td></tr>
+              <tr><td class="week">2</td><td class="module">Build vs buy vs partner: making the call</td><td class="faculty">Ex-CTO of a digital bank</td><td class="format">Live group</td></tr>
+              <tr><td class="week">3</td><td class="module">Vendor leverage: contracts, SLAs, escape clauses</td><td class="faculty">Banking software vendor strategist</td><td class="format">Workshop</td></tr>
+              <tr><td class="week">4</td><td class="module">Modernization roadmap and sequencing</td><td class="faculty">Ex-Chief Architect of a regional bank</td><td class="format">Live group + 1:1</td></tr>
+              <tr><td class="week">5</td><td class="module">Talent: hiring, retaining, and growing tech leaders</td><td class="faculty">Banking talent leader + recruiter principal</td><td class="format">Live group</td></tr>
+              <tr><td class="week">6</td><td class="module">Capstone kickoff: your bank's 12-month tech plan</td><td class="faculty">Cohort director</td><td class="format">Live group + capstone</td></tr>
+              <tr><td class="week">7</td><td class="module">Capstone reviews + peer challenge</td><td class="faculty">2 rotating CDO mentors</td><td class="format">Workshop in-person</td></tr>
+              <tr><td class="week">8</td><td class="module">Final readouts + alumni induction</td><td class="faculty">Full faculty panel</td><td class="format">Live group</td></tr>
+            </tbody>
+          </table></div>
+          <div class="panel-outcomes">
+            <h4>What participants leave with</h4>
+            <ul>
+              <li>A 12-month tech modernization plan tested against 4 peer-bank CDOs</li>
+              <li>A vendor leverage playbook with negotiation templates</li>
+              <li>A talent acquisition and retention plan for the tech function</li>
+              <li>A peer network of 29 vertical heads across regional banks</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PANEL 3 -->
+        <div class="tab-panel" id="panel3">
+          <div class="panel-head">
+            <div>
+              <h3>Relationship Manager Masterclass: Corporate Track</h3>
+              <div class="panel-meta">6 weeks / Async + 2 live sessions per week / 100 seats / 8 rotating practitioners</div>
+            </div>
+            <div class="price-pill">$1,500 / seat</div>
+          </div>
+          <div class="syllabus-scroll"><table class="syllabus">
+            <thead>
+              <tr>
+                <th>Wk</th><th>Module</th><th>Faculty profile</th><th>Format</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="week">0</td><td class="module">RM diagnostic: skills, deal pipeline, share-of-wallet</td><td class="faculty">Cohort coordinator</td><td class="format">Async</td></tr>
+              <tr><td class="week">1</td><td class="module">Account planning for corporate banking</td><td class="faculty">Senior corporate RM, peer bank</td><td class="format">2 live sessions</td></tr>
+              <tr><td class="week">2</td><td class="module">Discovery and complex needs analysis</td><td class="faculty">Ex-Head of Corporate Coverage</td><td class="format">2 live sessions</td></tr>
+              <tr><td class="week">3</td><td class="module">Cross-sell architecture: trade, FX, treasury, advisory</td><td class="faculty">Senior product specialists (3 anchors)</td><td class="format">2 live + workshop</td></tr>
+              <tr><td class="week">4</td><td class="module">Negotiation, pricing, and protecting margin</td><td class="faculty">Ex-Director of Pricing + ex-credit officer</td><td class="format">2 live sessions</td></tr>
+              <tr><td class="week">5</td><td class="module">Difficult conversations: workouts, restructuring</td><td class="faculty">Senior credit RM + workout specialist</td><td class="format">Live workshop</td></tr>
+              <tr><td class="week">6</td><td class="module">Capstone: live deal review with rotating mentors</td><td class="faculty">3 mentors + cohort coordinator</td><td class="format">1:1 + group</td></tr>
+            </tbody>
+          </table></div>
+          <div class="panel-outcomes">
+            <h4>What participants leave with</h4>
+            <ul>
+              <li>A reset account plan for one of their existing relationships, peer-reviewed</li>
+              <li>Frameworks for discovery, cross-sell, and pricing negotiation</li>
+              <li>Optional CISI MENA accreditation pathway (Year 2)</li>
+              <li>Membership in TapTime's RM alumni network</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE FACULTY (Sample Cards) -->
+<section id="faculty" style="background: var(--card-bg);">
+  <div class="container">
+    <div class="eyebrow">The faculty</div>
+    <h2>Real operators. Real banks built. Real outcomes shipped.</h2>
+    <p class="lead">From ex-CEOs of Tier 1 banks to founders of the region's most-quoted fintechs to the engineers who build banking AI at scale - this is the roster sellers can show on day one.</p>
+
+    <div class="faculty-grid">
+      <!-- CARD 1 -->
+      <div class="faculty-card">
+        <div class="corner-block">C-Suite Faculty</div>
+        <div class="photo">
+          <div class="avatar">RA</div>
+        </div>
+        <div class="body">
+          <div class="name">Rashid Al Mansouri</div>
+          <div class="title-line">Former Group CEO at a UAE Tier 1 Bank / 24 years in banking</div>
+          <div class="verify-row">
+            <span class="verified-badge">Verified</span>
+            <span class="star">★ 4.9</span>
+          </div>
+          <div class="bio">Led a $40B balance sheet through digital transformation. Closed two of the region's largest bank mergers. Now mentors next-generation banking CEOs.</div>
+          <div class="topics">
+            <span class="topic-pill">M&amp;A</span>
+            <span class="topic-pill">Transformation</span>
+            <span class="topic-pill">Board narrative</span>
+          </div>
+          <div class="price-row">
+            <div class="price">$1,500<small> / hour 1:1</small></div>
+            <a class="book-btn" href="#">Book a session</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="faculty-card">
+        <div class="corner-block">Digital Banking Builder</div>
+        <div class="photo">
+          <div class="avatar alt">LK</div>
+        </div>
+        <div class="body">
+          <div class="name">Layla Khouri</div>
+          <div class="title-line">Founding team, Liv. Digital Bank / Now advisor to 4 GCC neobanks</div>
+          <div class="verify-row">
+            <span class="verified-badge">Verified</span>
+            <span class="star">★ 5.0</span>
+          </div>
+          <div class="bio">Built one of the GCC's first true digital banks from zero to one million customers. Specializes in product, growth, and the operational reality of running a digital bank inside a traditional one.</div>
+          <div class="topics">
+            <span class="topic-pill">Digital banking</span>
+            <span class="topic-pill">Product</span>
+            <span class="topic-pill">Growth</span>
+          </div>
+          <div class="price-row">
+            <div class="price">$950<small> / hour 1:1</small></div>
+            <a class="book-btn" href="#">Book a session</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="faculty-card">
+        <div class="corner-block">Fintech Founder</div>
+        <div class="photo">
+          <div class="avatar dark">OH</div>
+        </div>
+        <div class="body">
+          <div class="name">Omar Haddad</div>
+          <div class="title-line">Co-founder of a regional BNPL unicorn / Series D operator</div>
+          <div class="verify-row">
+            <span class="verified-badge">Verified</span>
+            <span class="star">★ 4.9</span>
+          </div>
+          <div class="bio">Built and scaled a payments business across six GCC markets. Closed partnerships with seven of the region's top banks. Sees the bank-fintech relationship from the other side of the table.</div>
+          <div class="topics">
+            <span class="topic-pill">Embedded finance</span>
+            <span class="topic-pill">BaaS</span>
+            <span class="topic-pill">Partnerships</span>
+          </div>
+          <div class="price-row">
+            <div class="price">$1,200<small> / hour 1:1</small></div>
+            <a class="book-btn" href="#">Book a session</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="faculty-card">
+        <div class="corner-block">CDO Faculty</div>
+        <div class="photo">
+          <div class="avatar">SN</div>
+        </div>
+        <div class="body">
+          <div class="name">Salim Nasser</div>
+          <div class="title-line">Former Chief Digital Officer, Tier 1 GCC bank / Microsoft FS MENA advisor</div>
+          <div class="verify-row">
+            <span class="verified-badge">Verified</span>
+            <span class="star">★ 4.8</span>
+          </div>
+          <div class="bio">Owned the digital P&amp;L for one of the region's largest banks. Migrated core banking, launched the mobile platform, and built a 200-person engineering org from scratch.</div>
+          <div class="topics">
+            <span class="topic-pill">Cloud migration</span>
+            <span class="topic-pill">Tech operating model</span>
+            <span class="topic-pill">Vendor strategy</span>
+          </div>
+          <div class="price-row">
+            <div class="price">$1,100<small> / hour 1:1</small></div>
+            <a class="book-btn" href="#">Book a session</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="faculty-card">
+        <div class="corner-block">AI Builder</div>
+        <div class="photo">
+          <div class="avatar alt">FT</div>
+        </div>
+        <div class="body">
+          <div class="name">Farah Tabbara</div>
+          <div class="title-line">Senior AI architect, banking sector / Formerly G42 Financial Services</div>
+          <div class="verify-row">
+            <span class="verified-badge">Verified</span>
+            <span class="star">★ 4.9</span>
+          </div>
+          <div class="bio">Designed and shipped production AI systems across credit, fraud, and customer service for three regional banks. The practitioner CDOs call when they need to separate AI hype from AI reality.</div>
+          <div class="topics">
+            <span class="topic-pill">Banking AI</span>
+            <span class="topic-pill">MLOps</span>
+            <span class="topic-pill">Gen AI in regulated env</span>
+          </div>
+          <div class="price-row">
+            <div class="price">$1,000<small> / hour 1:1</small></div>
+            <a class="book-btn" href="#">Book a session</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="faculty-card">
+        <div class="corner-block">Risk and Compliance Faculty</div>
+        <div class="photo">
+          <div class="avatar dark">MA</div>
+        </div>
+        <div class="body">
+          <div class="name">Maryam Al Suwaidi</div>
+          <div class="title-line">Former CRO at a regional bank / Ex-FATF advisor</div>
+          <div class="verify-row">
+            <span class="verified-badge">Verified</span>
+            <span class="star">★ 4.9</span>
+          </div>
+          <div class="bio">Built credit risk and financial crime frameworks across two banks. Advised central banks in three GCC countries on AML and sanctions architecture. The benchmark for risk leadership in the region.</div>
+          <div class="topics">
+            <span class="topic-pill">Credit risk</span>
+            <span class="topic-pill">Financial crime</span>
+            <span class="topic-pill">Basel IV</span>
+          </div>
+          <div class="price-row">
+            <div class="price">$1,300<small> / hour 1:1</small></div>
+            <a class="book-btn" href="#">Book a session</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="archetype-note">
+      Sample faculty profiles representative of TapTime's recruitment archetypes for the banking vertical. Names are illustrative. Real faculty signings are confirmed and announced as cohorts go to market.
+    </div>
+  </div>
+</section>
+
+<!-- THE WEDGE -->
+<section id="wedge">
+  <div class="container">
+    <div class="eyebrow">The first move</div>
+    <h2>One bank. One cohort. One country. The wedge that compounds.</h2>
+    <p class="lead">We start with a single, focused win. The same playbook then repeats across banks and across tiers, with every new cohort adding faculty depth and reference customers.</p>
+
+    <div class="wedge">
+      <div class="eyebrow">The wedge</div>
+      <h2>Mashreq + The CDO Playbook + DIFC Academy umbrella</h2>
+      <p style="font-size: 18px; max-width: 820px;">A focused Tier 2 cohort priced for L&amp;D approval without board sign-off. CDO transformation is the <span class="lime-strong">hottest topic in ME banking right now.</span> EIBFS doesn't run a comparable program. Faculty for it is the easiest tier to recruit. Mashreq's innovation lineage with Liv. and Mashreq Neo makes them the natural first buyer.</p>
+
+      <div class="wedge-three">
+        <div class="pick">
+          <div class="pick-eye">Why this bank</div>
+          <div class="pick-name">Mashreq</div>
+          <div class="pick-desc">Innovation lineage with Liv. and Mashreq Neo. CHRO and Group Head of L&amp;D are progressive on external programs. Approvable without board sign-off.</div>
+        </div>
+        <div class="pick">
+          <div class="pick-eye">Why this cohort</div>
+          <div class="pick-name">CDO Playbook</div>
+          <div class="pick-desc">Mid-tier price. Hottest topic in the region. Easiest faculty pool. Doesn't compete with EIBFS. Output is highly visible internally for years.</div>
+        </div>
+        <div class="pick">
+          <div class="pick-eye">Why this umbrella</div>
+          <div class="pick-name">DIFC Academy</div>
+          <div class="pick-desc">Premium positioning. Instant procurement legitimacy. Co-branded delivery. Skip the wait, earn permits in parallel.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCREDITATION VS PARTNERSHIP -->
+<section id="paths" style="background: var(--card-bg);">
+  <div class="container">
+    <div class="eyebrow">Two paths to revenue</div>
+    <h2>Accreditation path or partnership path. We're running both, in sequence.</h2>
+    <p class="lead">UAE banks expect a recognized training provider on the other side of the contract. There are two ways to get there. We run the partnership path first to ship revenue, then layer accreditation underneath as the moat.</p>
+
+    <div class="path-grid">
+      <!-- PARTNERSHIP -->
+      <div class="path-card partnership">
+        <span class="path-tag">Path A / Now</span>
+        <h3>Partnership umbrella</h3>
+        <p style="font-size: 16px; color: var(--ink);">Co-deliver under DIFC Academy or a KHDA-licensed institute. They hold the permit, we bring curriculum, faculty, and platform. We ship Cohort 1 in 90 days.</p>
+
+        <div class="timeline">
+          <div class="timeline-item"><div class="ti-label">Time to revenue</div><div class="ti-value">90 days</div></div>
+          <div class="timeline-item"><div class="ti-label">Setup capital</div><div class="ti-value">~$15K</div></div>
+          <div class="timeline-item"><div class="ti-label">Margin take</div><div class="ti-value">15-30%</div></div>
+        </div>
+
+        <ul class="path-list">
+          <li><span class="icon">+</span><span>Instant credibility with bank procurement teams</span></li>
+          <li><span class="icon">+</span><span>No regulatory waiting period - sell from day one</span></li>
+          <li><span class="icon">+</span><span>DIFC Academy co-brand strengthens premium positioning</span></li>
+          <li><span class="icon">+</span><span>Partner provides backup faculty and ops infrastructure</span></li>
+          <li><span class="icon">+</span><span>Opens doors at banks that won't engage non-licensed providers</span></li>
+        </ul>
+
+        <div class="path-recommend">
+          <div class="star-flag">★</div>
+          <p><strong>The right move for Year 1.</strong> Land Cohort 1, prove faculty quality, build case studies. Use the proceeds to fund the accreditation track in parallel.</p>
+        </div>
+      </div>
+
+      <!-- ACCREDITATION -->
+      <div class="path-card accreditation">
+        <span class="path-tag">Path B / Year 1-2</span>
+        <h3>Direct accreditation</h3>
+        <p style="font-size: 16px; color: var(--ink);">TapTime as a directly licensed UAE training provider. KHDA permit, EIBFS partnership, then CISI / AAOIFI / CFA Institute layered on. Full ownership, full margin, ultimate moat.</p>
+
+        <div class="timeline">
+          <div class="timeline-item"><div class="ti-label">Time to ready</div><div class="ti-value">6-12 mo</div></div>
+          <div class="timeline-item"><div class="ti-label">Setup capital</div><div class="ti-value">~$80K</div></div>
+          <div class="timeline-item"><div class="ti-label">Margin take</div><div class="ti-value">100%</div></div>
+        </div>
+
+        <ul class="path-list">
+          <li><span class="icon">+</span><span>Direct UAE entity (DIFC) with training activity license</span></li>
+          <li><span class="icon">+</span><span>KHDA Permit to Provide Training - the procurement default</span></li>
+          <li><span class="icon">+</span><span>EIBFS partnership LOI for banking-specific accreditation</span></li>
+          <li><span class="icon">+</span><span>CISI MENA, AAOIFI, CFA Institute partnerships layered in</span></li>
+          <li><span class="icon">+</span><span>NQF / QFEmirates alignment as Year 2 brand asset</span></li>
+        </ul>
+
+        <div class="path-recommend">
+          <div class="star-flag">★</div>
+          <p><strong>The Year 2 endgame.</strong> While the partnership path runs, we apply for KHDA, build EIBFS relationships, and earn international accreditations. Year 2 onward, we operate fully on our own license.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 90-DAY SPRINT -->
+<section id="sprint">
+  <div class="container">
+    <div class="eyebrow">The 90-day sprint</div>
+    <h2>Twelve weeks from start to signed bank LOI.</h2>
+
+    <div class="sprint-table">
+      <div class="sprint-row head">
+        <div>Week</div>
+        <div>Move</div>
+        <div>Status check</div>
+      </div>
+      <div class="sprint-row">
+        <div class="sprint-week">1-2</div>
+        <div class="sprint-action">DIFC entity engaged. KHDA consultant retained. Warm intros mapped to 5 ex-CDOs and to Mashreq CHRO + Group Head of L&amp;D.</div>
+        <div class="sprint-check">Two warm intros activated by end of Week 2.</div>
+      </div>
+      <div class="sprint-row">
+        <div class="sprint-week">3-4</div>
+        <div class="sprint-action">First 3 anchor faculty pitched. First Mashreq exploratory call. DIFC Academy umbrella conversation opened.</div>
+        <div class="sprint-check">Faculty: 1 verbal yes. Bank: 1 exploratory call done.</div>
+      </div>
+      <div class="sprint-row">
+        <div class="sprint-week">5-6</div>
+        <div class="sprint-action">Faculty close on 2-3 anchors. Mashreq proposal sent. Cohort delivery infrastructure committed (Disco or in-platform).</div>
+        <div class="sprint-check">Faculty: 2 written yes. Mashreq: proposal sent.</div>
+      </div>
+      <div class="sprint-row">
+        <div class="sprint-week">7-8</div>
+        <div class="sprint-action">Mashreq proposal in active negotiation. Faculty 4-5 signed. Cohort director hired. CDO Playbook curriculum spine drafted.</div>
+        <div class="sprint-check">Mashreq: LOI in flight.</div>
+      </div>
+      <div class="sprint-row">
+        <div class="sprint-week">9-10</div>
+        <div class="sprint-action">Mashreq LOI signed. 50% deposit invoiced. Faculty retainers paid. Content production starts.</div>
+        <div class="sprint-check">Cash: deposit received.</div>
+      </div>
+      <div class="sprint-row">
+        <div class="sprint-week">11-12</div>
+        <div class="sprint-action">First content modules ready. Cohort enrollment opens. Cohort 2 outreach to ENBD or FAB begins.</div>
+        <div class="sprint-check">Cohort 1: enrollment &gt; 60% of seats.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER INVITATION -->
+<div class="invite">
+  <div class="container">
+    <div class="invite-card">
+      <div class="eyebrow">The invitation</div>
+      <h2>Build the operator network for ME banking. Own a category before it has a name.</h2>
+      <p class="lead">Banking cohorts are the highest-LTV vertical we will build. The product is sharp, the wedge is identified, the faculty pool is reachable, and the platform is launching now. The remaining missing piece is a partner who can carry sales, partnerships, and operations alongside the founder.</p>
+
+      <div class="invite-three">
+        <div class="ic">
+          <div class="ic-eye">What you'd own</div>
+          <h4>Banking GTM</h4>
+          <p>Bank relationships, cohort sales, faculty signings, EIBFS and DIFC Academy partnerships.</p>
+        </div>
+        <div class="ic">
+          <div class="ic-eye">What you'd build</div>
+          <h4>The faculty network</h4>
+          <p>Senior banking experts onboarded across the GCC. The compounding moat that no competitor can copy.</p>
+        </div>
+        <div class="ic">
+          <div class="ic-eye">What you'd unlock</div>
+          <h4>A defensible vertical</h4>
+          <p>A high-margin, prestige business inside TapTime with a clear path to category ownership in ME banking.</p>
+        </div>
+      </div>
+
+      <div class="cta-buttons">
+        <a class="btn btn-primary" href="#catalog">See the full cohort catalog</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============ FULL CATALOG ============ -->
+<section id="catalog" style="background: var(--white); padding-top: 64px;">
+  <div class="container">
+    <div class="eyebrow">The full catalog</div>
+    <div class="eyebrow">The Catalog</div>
+    <h1>The full TapTime Banking Cohort Catalog.</h1>
+    <p class="lead">37 cohorts across three audience tiers, built for ME banks. From CEO-level peer learning to RM masterclasses. Every cohort runs on the same reusable spine, with rotating operator faculty on every run.</p>
+    <div class="tier-jump">
+      <a href="#tier1">Tier 1 - C-Suite <span class="count">10</span></a>
+      <a href="#tier2">Tier 2 - Vertical Heads <span class="count">15</span></a>
+      <a href="#tier3">Tier 3 - Executors <span class="count">12</span></a>
+  </div>
+</section>
+
+<section id="tier1">
+  <div class="container">
+    <div class="tier-banner">
+      <div class="tb-left">
+        <div class="tb-eye">Tier 1</div>
+        <h2>C-Suite cohorts</h2>
+        <p>Peer-led, intimate, ego-friendly. Faculty rotates 4-6 ex-CEOs and Group Heads per run.</p>
+      </div>
+      <div class="tb-stats">
+        <div class="tb-stat"><div class="label">Seats</div><div class="value">12-20</div></div>
+        <div class="tb-stat"><div class="label">Length</div><div class="value">6-8 wks</div></div>
+        <div class="tb-stat"><div class="label">Format</div><div class="value">Hybrid</div></div>
+        <div class="tb-stat"><div class="label">Per seat</div><div class="value">$8.5K-$15K</div></div>
+      </div>
+    </div>
+
+    <div class="cohort-grid">
+
+      <div class="cohort-card tier-1-card">
+        <div class="cohort-head">
+          <span class="cohort-code">C1</span>
+          <span class="cohort-price">$12,000</span>
+        </div>
+        <div class="cohort-name">The AI-Native Bank: A CEO Playbook</div>
+        <span class="audience-pill">CEO / MDs / COOs</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Operating model, capital allocation, talent, vendor strategy, board narrative for AI transformation</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-CEO of a regional bank, ex-CDO of FAB / ENBD / Mashreq, ex-McKinsey FS partner, fintech founder</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-1-card">
+        <div class="cohort-head">
+          <span class="cohort-code">C2</span>
+          <span class="cohort-price">$15,000</span>
+        </div>
+        <div class="cohort-name">M&amp;A and Regional Bank Consolidation</div>
+        <span class="audience-pill">CEO / CFO / Strategy</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Inorganic growth thesis, target identification, cultural integration, regulatory navigation across GCC</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-CEO who closed a major bank merger, ex-CFO with M&amp;A scars, ex-MENA M&amp;A advisor (HSBC / Citi), bank board chair</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-1-card">
+        <div class="cohort-head">
+          <span class="cohort-code">C3</span>
+          <span class="cohort-price">$11,000</span>
+        </div>
+        <div class="cohort-name">Sustainable Finance: The Board Mandate</div>
+        <span class="audience-pill">CEO / CFO / CRO</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">ESG-linked products, green sukuk structuring, climate risk in credit, Vision 2030 / Net Zero alignment</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-Masdar exec, COP banking advisor, ex-CRO who built climate risk frameworks, sovereign green bond architect</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-1-card">
+        <div class="cohort-head">
+          <span class="cohort-code">C4</span>
+          <span class="cohort-price">$10,000</span>
+        </div>
+        <div class="cohort-name">Open Finance Strategy: Beyond Compliance</div>
+        <span class="audience-pill">CEO / CDO / CPO</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Open Banking as growth lever, partnership architecture, data product monetization, BaaS rails</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-Lean / Tarabut leadership, ex-CBUAE Open Finance architect, fintech founder, ex-CDO who built API stack</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-1-card">
+        <div class="cohort-head">
+          <span class="cohort-code">C5</span>
+          <span class="cohort-price">$11,000</span>
+        </div>
+        <div class="cohort-name">The Islamic Bank of the Future</div>
+        <span class="audience-pill">CEO / Strategy / Sharia</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Sharia innovation, digital Islamic products, takaful integration, GCC vs SEA models</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-Al Rajhi senior leader, ex-DIB CEO, ex-ADIB strategy, IsDB economist, ex-AAOIFI scholar, Islamic fintech founder</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-1-card">
+        <div class="cohort-head">
+          <span class="cohort-code">C6</span>
+          <span class="cohort-price">$13,000</span>
+        </div>
+        <div class="cohort-name">Cyber Resilience: A C-Suite War Game</div>
+        <span class="audience-pill">CEO / CIO / CRO / GC</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Live ransomware tabletop, regulator engagement, customer comms in crisis, board reporting</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-CISO of a major bank that survived a breach, NCA / cyber agency leader, crisis comms specialist, regulator</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-1-card">
+        <div class="cohort-head">
+          <span class="cohort-code">C7</span>
+          <span class="cohort-price">$9,500</span>
+        </div>
+        <div class="cohort-name">Talent Transformation for Banks</div>
+        <span class="audience-pill">CEO / Group CHRO / L&amp;D</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Workforce strategy for digital era, succession, hire vs reskill, EVP for tech talent</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-CHRO of FAB / HSBC MENA, ex-Careem Chief People, ex-McKinsey Org partner, regional ed/talent founder</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-1-card">
+        <div class="cohort-head">
+          <span class="cohort-code">C8</span>
+          <span class="cohort-price">$13,000</span>
+        </div>
+        <div class="cohort-name">Investor Relations and Capital Strategy</div>
+        <span class="audience-pill">CEO / CFO / IR</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Telling the story to GCC sovereigns and global LPs, capital instruments (AT1, sukuk, hybrid), dividend discipline</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-CFO of listed regional bank, ex-IR head, equity analyst at EFG / Goldman MENA, sovereign IR lead</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-1-card">
+        <div class="cohort-head">
+          <span class="cohort-code">C9</span>
+          <span class="cohort-price">$10,500</span>
+        </div>
+        <div class="cohort-name">Customer-Obsessed Banking</div>
+        <span class="audience-pill">CEO / CMO / COO</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">NPS-led transformation, branch redesign, journey orchestration, the Apple-grade CX bar</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-Mashreq Neo, ex-Liv. founders, ex-CEO of a digital bank (Wio, ila, Zand), ex-CMO of top retail bank</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-1-card">
+        <div class="cohort-head">
+          <span class="cohort-code">C10</span>
+          <span class="cohort-price">$14,000</span>
+        </div>
+        <div class="cohort-name">Crisis Leadership in Banking</div>
+        <span class="audience-pill">CEO / CFO / CRO</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Liquidity crisis playbooks (post-SVB), geopolitical scenarios, sanctions, capital flight defense</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-CEO who navigated 2008/2014/2020, ex-central bank deputy governor, ex-crisis advisor, sanctions specialist</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TIER 2 -->
+<section id="tier2" style="background: var(--card-bg);">
+  <div class="container">
+    <div class="tier-banner">
+      <div class="tb-left">
+        <div class="tb-eye">Tier 2</div>
+        <h2>Vertical Head cohorts</h2>
+        <p>Mid-senior leaders who own a P&amp;L or function. Functional mastery + peer benchmarking + cross-bank network.</p>
+      </div>
+      <div class="tb-stats">
+        <div class="tb-stat"><div class="label">Seats</div><div class="value">25-40</div></div>
+        <div class="tb-stat"><div class="label">Length</div><div class="value">8 wks</div></div>
+        <div class="tb-stat"><div class="label">Format</div><div class="value">Live + capstone</div></div>
+        <div class="tb-stat"><div class="label">Per seat</div><div class="value">$3.5K-$6K</div></div>
+      </div>
+    </div>
+
+    <div class="cohort-grid">
+
+      <div class="cohort-card">
+        <div class="cohort-head"><span class="cohort-code">V1</span><span class="cohort-price">$5,000</span></div>
+        <div class="cohort-name">Reinventing Retail Banking</div>
+        <span class="audience-pill">Heads of Retail</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Branch + digital + advisor model, segmentation, profitability per customer, lifecycle marketing</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-Head of Retail at FAB / ENBD, ex-Liv. / Mashreq Neo, ex-CMO of digital bank, retail consultant</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card">
+        <div class="cohort-head"><span class="cohort-code">V2</span><span class="cohort-price">$4,500</span></div>
+        <div class="cohort-name">The Future of Cards and Payments</div>
+        <span class="audience-pill">Heads of Cards / Payments</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Tap-to-pay, network deals, BNPL partnership, embedded checkout, super-app strategy</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-Visa / Mastercard MENA, ex-Head of Cards at ENBD / Mashreq, Tabby / Tamara founder, Network International</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card">
+        <div class="cohort-head"><span class="cohort-code">V3</span><span class="cohort-price">$4,500</span></div>
+        <div class="cohort-name">Winning in SME Banking</div>
+        <span class="audience-pill">Heads of SME / Business</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Underserved segments, digital onboarding, embedded lending, ecosystem partnerships</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-Head of SME at QNB / SNB / Mashreq, fintech SME lender (Lulalend, Beehive), ex-Aramco SME program lead</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card">
+        <div class="cohort-head"><span class="cohort-code">V4</span><span class="cohort-price">$5,500</span></div>
+        <div class="cohort-name">Corporate Banking Transformation</div>
+        <span class="audience-pill">Heads of Corporate / Wholesale</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Relationship to platform model, transaction banking modernization, trade digitization</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-Head of Corporate at FAB / HSBC MENA, ex-CitiVelocity product lead, trade fintech founder</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card">
+        <div class="cohort-head"><span class="cohort-code">V5</span><span class="cohort-price">$6,000</span></div>
+        <div class="cohort-name">HNW and UHNW Wealth Management in MEA</div>
+        <span class="audience-pill">Heads of Wealth / Private Banking</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Family office dynamics, alternatives, GCC HNW preferences, Islamic wealth</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-Head of Private Banking at JS / EFG / Mashreq Gold, ex-Lombard Odier MENA, ex-Sanabil family office</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card">
+        <div class="cohort-head"><span class="cohort-code">V6</span><span class="cohort-price">$5,000</span></div>
+        <div class="cohort-name">Treasury and Liquidity in a Basel IV World</div>
+        <span class="audience-pill">Heads of Treasury / ALM</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Funding strategy, deposit war, IRRBB, Basel IV / IFRS 17 implications</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-Treasurer of regional bank, ex-CFO with treasury background, central bank liquidity team, ALCO chair</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card">
+        <div class="cohort-head"><span class="cohort-code">V7</span><span class="cohort-price">$5,000</span></div>
+        <div class="cohort-name">Modern Credit Risk Leadership</div>
+        <span class="audience-pill">CROs / Heads of Credit</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">IFRS 9 in stress, GCC sector concentration, AI-augmented underwriting, crypto / digital asset risk</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-CRO of regional bank, ex-Moody's MENA, credit fintech founder (Lendable, Beehive), data scientist for credit</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card">
+        <div class="cohort-head"><span class="cohort-code">V8</span><span class="cohort-price">$5,000</span></div>
+        <div class="cohort-name">Financial Crime: AML, KYC, Sanctions at Scale</div>
+        <span class="audience-pill">Heads of Compliance / MLROs</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Real-time monitoring, AI false positive reduction, sanctions screening for GCC, FATF readiness</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-MLRO at major bank, ex-FinCEN / FATF advisor, ex-OFAC, RegTech founder (ComplyAdvantage)</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card">
+        <div class="cohort-head"><span class="cohort-code">V9</span><span class="cohort-price">$5,500</span></div>
+        <div class="cohort-name">The CDO Playbook</div>
+        <span class="audience-pill">CDOs / CTOs / Heads of Digital</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Tech operating model, build-vs-buy, vendor leverage, modernization roadmap</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-CDO at FAB / ENBD / Mashreq, ex-CTO of digital bank, ex-McKinsey Digital partner</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card">
+        <div class="cohort-head"><span class="cohort-code">V10</span><span class="cohort-price">$5,500</span></div>
+        <div class="cohort-name">Data and AI Strategy for Banks</div>
+        <span class="audience-pill">CDAOs / Heads of AI</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Data foundation, MLOps in regulated env, Gen AI for banks, productizing data</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-Chief Data Officer at major bank, ex-G42 / SDAIA leader, ex-Big Tech AI architect, AI-in-banking founder</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card">
+        <div class="cohort-head"><span class="cohort-code">V11</span><span class="cohort-price">$4,000</span></div>
+        <div class="cohort-name">Lean Banking Operations</div>
+        <span class="audience-pill">COOs / Heads of Operations</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Process automation, RPA, customer service ops, branch ops, vendor management</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-COO of a bank, ex-Big 4 banking ops partner, ex-OpEx leader at fintech, contact center director</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card">
+        <div class="cohort-head"><span class="cohort-code">V12</span><span class="cohort-price">$4,000</span></div>
+        <div class="cohort-name">Banking HR and Talent Strategy</div>
+        <span class="audience-pill">CHROs / Heads of Talent</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">EVP for digital era, succession planning, comp benchmarking, culture in tech-led transformation</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-CHRO at major bank, ex-McKinsey Org, ex-Careem People, GCC executive search principal</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card">
+        <div class="cohort-head"><span class="cohort-code">V13</span><span class="cohort-price">$4,000</span></div>
+        <div class="cohort-name">Brand and CX for Banks</div>
+        <span class="audience-pill">CMOs / Heads of CX</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Brand-as-moat, CX measurement, marketing efficiency in regulated env, share-of-wallet</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-CMO of major bank, ex-Liv. / Wio brand lead, ex-Ogilvy Banking lead, CX measurement specialist</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card">
+        <div class="cohort-head"><span class="cohort-code">V14</span><span class="cohort-price">$5,000</span></div>
+        <div class="cohort-name">Embedded Finance and BaaS Strategy</div>
+        <span class="audience-pill">Heads of Innovation / Open Banking</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Building the BaaS revenue line, partner sourcing, pricing, regulatory architecture</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-Lean / Tarabut / Solaris MENA leader, ex-CDO who built BaaS, ex-Visa Open Banking, partnership lead</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card">
+        <div class="cohort-head"><span class="cohort-code">V15</span><span class="cohort-price">$4,500</span></div>
+        <div class="cohort-name">The Heads of Internal Audit Cohort</div>
+        <span class="audience-pill">Chief Internal Auditors</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Modernizing audit, continuous monitoring, AI risk audit, third-line of defense for digital</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Ex-CIA of major bank, ex-Big 4 internal audit partner, GRC fintech founder, ex-regulator on-site supervisor</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TIER 3 -->
+<section id="tier3">
+  <div class="container">
+    <div class="tier-banner">
+      <div class="tb-left">
+        <div class="tb-eye">Tier 3</div>
+        <h2>Executor cohorts</h2>
+        <p>The largest revenue volume by seat count. Practitioners who deliver day-to-day. Async-first with live sessions and optional certifications.</p>
+      </div>
+      <div class="tb-stats">
+        <div class="tb-stat"><div class="label">Seats</div><div class="value">50-150</div></div>
+        <div class="tb-stat"><div class="label">Length</div><div class="value">4-6 wks</div></div>
+        <div class="tb-stat"><div class="label">Format</div><div class="value">Async + live</div></div>
+        <div class="tb-stat"><div class="label">Per seat</div><div class="value">$750-$1.8K</div></div>
+      </div>
+    </div>
+
+    <div class="cohort-grid">
+
+      <div class="cohort-card tier-3-card">
+        <div class="cohort-head"><span class="cohort-code">E1</span><span class="cohort-price">$1,500</span></div>
+        <div class="cohort-name">RM Masterclass: Corporate Track</div>
+        <span class="audience-pill">Corporate RMs / AVPs</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Account planning, share-of-wallet, complex product positioning, deal navigation</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">6-8 senior RMs and Heads of Coverage from peer banks</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-3-card">
+        <div class="cohort-head"><span class="cohort-code">E2</span><span class="cohort-price">$1,200</span></div>
+        <div class="cohort-name">RM Masterclass: SME Track</div>
+        <span class="audience-pill">SME RMs / BDMs</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">SME credit conversation, embedded banking sale, retention plays</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Senior SME RMs, ex-fintech SME sellers, credit officers</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-3-card">
+        <div class="cohort-head"><span class="cohort-code">E3</span><span class="cohort-price">$1,800</span></div>
+        <div class="cohort-name">Wealth RM Masterclass</div>
+        <span class="audience-pill">Private banking RMs</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">HNW prospecting, advisory conversation, Islamic wealth, alternatives</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Senior wealth RMs, ex-private bank advisors, family office principals</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-3-card">
+        <div class="cohort-head"><span class="cohort-code">E4</span><span class="cohort-price">$1,000</span></div>
+        <div class="cohort-name">Branch Manager Excellence</div>
+        <span class="audience-pill">Branch managers / Area managers</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Branch P&amp;L, hybrid branch model, sales coaching, ops discipline</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Multi-bank branch directors, retail ops leaders, retail consultants</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-3-card">
+        <div class="cohort-head"><span class="cohort-code">E5</span><span class="cohort-price">$1,200</span></div>
+        <div class="cohort-name">Credit Underwriting Bootcamp</div>
+        <span class="audience-pill">Credit analysts / underwriters</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Cash flow, sector analysis, GCC sector deep-dives (real estate, contracting, retail)</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Senior credit officers, sector specialists, ex-CRO</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-3-card">
+        <div class="cohort-head"><span class="cohort-code">E6</span><span class="cohort-price">$1,300</span></div>
+        <div class="cohort-name">AML / KYC Analyst Mastery</div>
+        <span class="audience-pill">Compliance / FCC analysts</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Typology recognition, alert tuning, sanctions screening, SAR drafting</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">MLROs, FCC investigators, ex-FATF, RegTech operators</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-3-card">
+        <div class="cohort-head"><span class="cohort-code">E7</span><span class="cohort-price">$1,500</span></div>
+        <div class="cohort-name">Banking Product Manager</div>
+        <span class="audience-pill">Digital PMs / product owners</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Banking product discovery, regulatory PM, agile in regulated env, PM-Compliance handoff</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Banking PMs at Mashreq Neo / ENBD / digital banks, fintech PMs, ex-Stripe / Square PMs</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-3-card">
+        <div class="cohort-head"><span class="cohort-code">E8</span><span class="cohort-price">$1,500</span></div>
+        <div class="cohort-name">Bank Cybersecurity Engineer</div>
+        <span class="audience-pill">Security analysts / SOC engineers</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Threat modeling, SOC playbooks, banking-specific attacks, incident response</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Bank CISOs, NCA / CBUAE engagement specialists, ex-IR consultants</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-3-card">
+        <div class="cohort-head"><span class="cohort-code">E9</span><span class="cohort-price">$750</span></div>
+        <div class="cohort-name">Customer Service Excellence</div>
+        <span class="audience-pill">Contact center agents / CS leads</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">De-escalation, complaint resolution, NPS-driving service, digital CS</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Bank CX directors, contact center ops leaders, CX consultants</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-3-card">
+        <div class="cohort-head"><span class="cohort-code">E10</span><span class="cohort-price">$1,000</span></div>
+        <div class="cohort-name">Consultative Selling for Bankers</div>
+        <span class="audience-pill">Business banking sellers / RMs</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Discovery, value selling, objection handling for banking products</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Top RMs across banks, sales coaches, ex-private bank trainers</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-3-card">
+        <div class="cohort-head"><span class="cohort-code">E11</span><span class="cohort-price">$1,200</span></div>
+        <div class="cohort-name">Banking Data Analyst</div>
+        <span class="audience-pill">Data analysts / BI specialists</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">SQL, Tableau / PowerBI, banking data models, regulatory reporting basics</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Senior bank data analysts, fintech analytics leads, ex-vendor consultants</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+      <div class="cohort-card tier-3-card">
+        <div class="cohort-head"><span class="cohort-code">E12</span><span class="cohort-price">$1,000</span></div>
+        <div class="cohort-name">Operations Excellence for Bank Managers</div>
+        <span class="audience-pill">Ops managers / process leads</span>
+        <div class="cohort-row"><span class="row-label">Learn</span><span class="row-value">Process design, lean tooling, automation playbook, vendor management</span></div>
+        <div class="cohort-row"><span class="row-label">Faculty</span><span class="row-value">Bank ops leaders, RPA implementers, ex-Big 4 ops consultants</span></div>
+        <a class="add-btn" href="#">Add to proposal</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wordmark"><img src="taptime_logo_transparent.png" alt="TapTime" class="wordmark-icon">TapTime</div>
+  <p>Banking Vertical / Partner Brief / 2026-04-29</p>
+</footer>
+
+</body>
+</html>
